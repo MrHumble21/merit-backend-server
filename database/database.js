@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { connectionString } = require("../constants/constants");
+const { connectionString } = require("./connection");
 const { ClientSchema } = require("../models/client");
 const { CategorySchema } = require("../models/category");
 const { ProductSchema } = require("../models/product");
