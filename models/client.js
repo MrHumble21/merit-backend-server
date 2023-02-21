@@ -9,3 +9,4 @@ const ClientSchema = new Schema({
 });
 
 exports.ClientSchema = ClientSchema;
+//# sourceMappingURL=client
