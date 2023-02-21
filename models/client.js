@@ -9,7 +9,6 @@ const ClientSchema = new Schema({
     region: {
         type: String,
         required: true,
-
     },
     phone: {
         type: String,
