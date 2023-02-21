@@ -1,30 +1,39 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const ProductSchema = new Schema({
-  name: {
+const OrderSchema = new Schema({
+  userId: {
     type: String,
     required: true,
   },
-  code: {
+  clientId: {
     type: String,
     required: true,
   },
-  price: {
-    type: Number,
+  productId: {
+    type: String,
     required: true,
-    default: 0,
   },
   amount: {
     type: Number,
     required: true,
     default: 0,
   },
-  isPopular: {
+  isDelivered: {
     type: Boolean,
     default: false,
     required: true,
   },
+  orderedDate: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
+  deadline: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
 });
 
-exports.ProductSchema = ProductSchema;
+exports.OrderSchema = OrderSchema;
