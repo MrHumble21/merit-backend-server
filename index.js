@@ -2,6 +2,7 @@ const express = require("express");
 const fileupload = require("express-fileupload");
 const jsonwebtoken = require("jsonwebtoken");
 const bodyParser = require("body-parser");
+const port = 8080;
 
 const cors = require("cors");
 const app = express();
@@ -26,4 +27,8 @@ app.post("/create_product", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+app.listen(port, (err) => {
+  console.log("server listening on port" + port);
 });

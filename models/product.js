@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const Productchema = new Schema({
+const ProductSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -27,4 +27,4 @@ const Productchema = new Schema({
   },
 });
 
-exports.Productchema = Productchema;
+exports.ProductSchema = ProductSchema;
