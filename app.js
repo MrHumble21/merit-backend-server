@@ -17,4 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+
+app.listen(9999, ()=>{
+    console.log('listening on 9999' )
+})
+
 module.exports = app;
