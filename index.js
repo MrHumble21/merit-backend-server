@@ -4,7 +4,13 @@ const bodyParser = require("body-parser");
 const port = 8080;
 
 const cors = require("cors");
-const {CategoryModel, ProductModel, ClientModel, UserModel} = require("./database/database");
+const {
+  CategoryModel,
+  ProductModel,
+  ClientModel,
+  UserModel,
+  OrderModel,
+} = require("./database/database");
 const app = express();
 app.use(cors("*"));
 app.use(bodyParser.json());
@@ -22,47 +28,55 @@ app.post("/create_category", async (req, res) => {
 app.post("/create_product", async (req, res) => {
   try {
     const product = await ProductModel.create(req.body);
-    res.json({ product});
+    res.json({ product });
   } catch (error) {
     console.log(error);
   }
 });
 
-
-
-
-app.post('/create_user', async (req, res)=>{
+app.post("/create_user", async (req, res) => {
   try {
-    const new_user =  await UserModel.create(req.body);
-    res.json({ new_user: new_user})
+    const new_user = await UserModel.create(req.body);
+    res.json({ new_user: new_user });
   } catch (error) {
     console.log(error);
   }
-})
+});
 
-app.post('/create_client', async (req, res)=>{
+app.post("/create_client", async (req, res) => {
   try {
-    const new_client =  await ClientModel.create(req.body);
-    res.json({ new_client})
+    const new_client = await ClientModel.create(req.body);
+    res.json({ new_client });
   } catch (error) {
     console.log(error);
   }
-})
-app.post('/sign_in', async (req, res)=>{
+});
+app.post("/sign_in", async (req, res) => {
   try {
-    const user =  await UserModel.create(req.body);
-    if(user.username === req.body.username && user.password === req.body.password){
-      res.json({ user: user}).status(200)
-    }else{
-      res.status(401)
+    const user = await UserModel.create(req.body);
+    if (
+      user.username === req.body.username &&
+      user.password === req.body.password
+    ) {
+      res.json({ user: user }).status(200);
+    } else {
+      res.status(401);
     }
   } catch (error) {
     console.log(error);
-    res.status(500)
+    res.status(500);
   }
-})
+});
+
+app.post("/create_order", async (req, res) => {
+  try {
+    const order = await OrderModel.create(req.body);
+    res.json({ order: order });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(port, (err) => {
   console.log("server listening on port" + port);
 });
-
-//kjkjn
